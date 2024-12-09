@@ -1,4 +1,4 @@
-# Syria Tel Customer Churn 
+# Syria Telecomunicatin Customer Churn 
 ## Overview
 This project focuses on developing a predictive model to identify customers at high risk of discontinuing SyriaTel’s telecommunications services
  (churn) and switching to other providers. Using a binary classification approach, the model will analyze historical customer behavior data to 
@@ -48,14 +48,27 @@ or patterns that may not be immediately apparent.
 - Bivariate Analysis
 -Multivariate Analysis
 
-## Modeling
+### Model Building and Evaluation
+
+Baseline Logistic Model:
+Class 0 performed well (F1-score: 0.92, recall: 0.99), but Class 1 struggled (F1-score: 0.11, recall: 0.06) due to class imbalance (2141 vs. 358). Accuracy was 85%, but class 1 needed improvement, so SMOTE was applied. AUC was 0.73, indicating moderate model performance.
+
+Fine-Tuning the Second Model:
+SMOTE addressed the imbalance, StandardScaler was used for scaling, and the liblinear solver with regularization (1e12) optimized the model. Performance improved with balanced precision, recall, and F1-score of 0.76 for both classes, achieving 76% accuracy. AUC rose to 0.82, indicating better model performance and fairness across classes.
 
 
-## Evaluation
+### Recommendations and next step
+- Focus on reducing churn by addressing frequent customer service calls (over four), as these strongly correlate with customer dissatisfaction.
+
+- Promote voicemail and international plans to specific customer segments, as both show potential to improve retention.
+
+- Develop targeted retention efforts in area code 415, leveraging its larger customer base and slightly higher churn rate.
 
 
-## Recommendation
-
-
+Next steps:
+- Tailor marketing strategies for voicemail and international plans to high-risk groups.
+- Develop area-specific retention campaigns, focusing on high-churn segments.
 
 ## Conclusion
+The Random Forest model (AUC = 0.92) is the best-performing model, offering excellent predictive power and handling complex data effectively. The Decision Tree (AUC = 0.89) performs slightly worse but is simpler and interpretable. The Modified Logistic Regression (AUC = 0.86) is a strong alternative, balancing performance and efficiency. The Baseline model (AUC = 0.50) highlights the significant improvement achieved by these models. For maximum accuracy, choose Random Forest; for simplicity, choose Logistic Regression.
+
